@@ -1,12 +1,11 @@
+import cors from 'cors'
 import express from 'express'
-import 'express-async-errors'
+import WebSocket from 'ws'
 
-// import { apiRoutes } from './routes'
+const ws = new WebSocket(process.env.WS_GATEWAY || '')
 
 const app = express()
 
-app.use(express.json())
+app.use(cors());
 
-// apiRoutes(app)
-
-export { app }
+export { app, ws }
